@@ -43,7 +43,16 @@ watch(
 
 <template>
   <div class="grid max-w-screen-sm gap-1 mx-auto mb-1"
-  :class="'grid-cols-'+palavraDaRodada.length">
+  :class="{
+    'grid-cols-3': palavraDaRodada.length == 3,
+    'grid-cols-4': palavraDaRodada.length == 4,
+    'grid-cols-5': palavraDaRodada.length == 5,
+    'grid-cols-6': palavraDaRodada.length == 6,
+    'grid-cols-7': palavraDaRodada.length == 7,
+    'grid-cols-8': palavraDaRodada.length == 8,
+    'grid-cols-9': palavraDaRodada.length == 9,
+  
+  }">
     <Letra
         v-for="i in props.palavraDaRodada.length"
         :key="i"

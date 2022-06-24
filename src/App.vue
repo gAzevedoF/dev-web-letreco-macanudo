@@ -77,8 +77,9 @@ const handleInput = (tecla) => {
 
 <template>
   <div>
-    <div class="bg-gradient-to-r from-green-500 via-red-500 to-yellow-500 h-48 flex items-center justify-center">
-      <p class="text-white sm:text-4xl lg:text-6xl">Letreco Macanudo</p>
+    <div class="h-36 bg-gradient-to-r from-green-500 via-red-500 to-yellow-500 flex-shrink-0 flex items-center justify-center">
+      <img class="w-full h-36 sm:h-auto object-cover sm:w-36 rounded-t-lg md:rounded-none md:rounded-l-lg" src="src\assets\logo.png" alt="">
+      <p class="font-mono text-white sm:text-4xl lg:text-6xl">MACANUDO</p>
     </div>
     
     <div class="flex flex-col h-screen max-w-md mx-auto justify-evenly">
@@ -103,8 +104,8 @@ const handleInput = (tecla) => {
       
     </div>
 
-    <div class="bg-gray-500 h-48 flex items-center justify-center">
-      <p class="font-mono text-2xl">Desenvolvimento para Web/2022</p>
+    <div class="bg-gray-500 h-36 flex items-center justify-center">
+      <p class="font-mono text-1xl">Desenvolvimento para Web/2022</p>
     </div>
 
     
