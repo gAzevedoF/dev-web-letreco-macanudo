@@ -22,8 +22,9 @@ const props = defineProps({
       'border-red-700 bg-red-700 text-white': corDaLetra == 'red',
       'border-green-600 bg-green-600 text-white': corDaLetra == 'green',
       'border-yellow-500 bg-yellow-500 text-white': corDaLetra == 'yellow',
-    }">
-        {{letra}}
+    }"
+    >
+        <span v-text="letra"></span>
     </div>    
 </template>
 

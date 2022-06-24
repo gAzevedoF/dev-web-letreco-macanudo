@@ -9,7 +9,7 @@ const props = defineProps({
     tentativaFinalizada: Boolean
 })
 
-const corPorLetra = ref(["", "", "", "", "", ""]);
+const corPorLetra = ref([""]);
 
 watch(
   () =>  {

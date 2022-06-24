@@ -4,14 +4,14 @@
 
 <script setup>
 
-import { ref, onMounted, defineEmits } from "vue"
-import Keyboard from "simple-keyboard"
+import { onMounted, defineEmits, ref } from "vue"
+import Teclado from "simple-keyboard"
 import "simple-keyboard/build/css/index.css"
 
 const teclado = ref(null)
 
 onMounted(() => {
-    teclado.value = new Keyboard({
+    teclado.value = new Teclado({
         onKeyPress: tecla => onTeclaPressionada(tecla),
         layout: {
             default: [
@@ -34,8 +34,6 @@ function onTeclaPressionada(tecla) {
 }
 
 </script>
-
-
 
 <style>
 

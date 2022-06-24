@@ -5,7 +5,7 @@
 import Tentativa from "./components/Tentativa.vue"
 import Teclado from './components/Teclado.vue'
 import Modal from './components/Modal.vue'
-import { reactive, onMounted } from "vue"
+import { reactive } from "vue"
 
 const palavras = [
   "Arreganho",
@@ -38,19 +38,19 @@ const palavras = [
 const estadoAtual = reactive({
   palavraDaRodada:  palavras[Math.ceil(Math.random()*palavras.length)].toLowerCase(),
   tentativas: ["", "", "", "", "", ""],
-  quantidadeTentativas: 0,
+  tentativaJogada: 0,
   descobriuAPalavra: false,
   terminouAsTentativas: false,
 })
 
-const handleInput = (tecla) => {
+const teclaPressionada = (tecla) => {
 
-  const tentativaAtual = estadoAtual.tentativas[estadoAtual.quantidadeTentativas]
+  const tentativaAtual = estadoAtual.tentativas[estadoAtual.tentativaJogada]
   const palavraDaRodada = estadoAtual.palavraDaRodada
   console.log(palavraDaRodada)
 
   if(tecla == "{enter}" && tentativaAtual.length == palavraDaRodada.length) {
-    estadoAtual.quantidadeTentativas++;
+    estadoAtual.tentativaJogada++;
 
     if(tentativaAtual == palavraDaRodada){
     estadoAtual.terminouAsTentativas = true;
@@ -58,17 +58,17 @@ const handleInput = (tecla) => {
     return
   }
 
-    if(estadoAtual.quantidadeTentativas == 6) {
+    if(estadoAtual.tentativaJogada == 6) {
     estadoAtual.terminouAsTentativas = true
     estadoAtual.descobriuAPalavra = (tentativaAtual == palavraDaRodada)
     return
   }
   
   } else if(tecla == "{bksp}") {
-    estadoAtual.tentativas[estadoAtual.quantidadeTentativas] = tentativaAtual.slice(0, -1);
+    estadoAtual.tentativas[estadoAtual.tentativaJogada] = tentativaAtual.slice(0, -1);
   
   } else {
-      estadoAtual.tentativas[estadoAtual.quantidadeTentativas] += tecla;
+      estadoAtual.tentativas[estadoAtual.tentativaJogada] += tecla;
     }
 }
 
@@ -77,9 +77,9 @@ const handleInput = (tecla) => {
 
 <template>
   <div>
-    <div class="h-36 bg-gradient-to-r from-green-500 via-red-500 to-yellow-500 flex-shrink-0 flex items-center justify-center">
-      <img class="w-full h-36 sm:h-auto object-cover sm:w-36 rounded-t-lg md:rounded-none md:rounded-l-lg" src="src\assets\logo.png" alt="">
-      <p class="font-mono text-white sm:text-4xl lg:text-6xl">MACANUDO</p>
+    <div class="h-36 bg-gradient-to-r from-green-500 via-red-700 to-yellow-500 flex-shrink-0 flex items-center justify-center">
+      <img class="w-24" src="src\assets\logo.png" alt="">
+      <p class="font-mono text-white sm:text-4xl lg:text-6xl">LETRECO MACANUDO</p>
     </div>
     
     <div class="flex flex-col h-screen max-w-md mx-auto justify-evenly">
@@ -90,15 +90,15 @@ const handleInput = (tecla) => {
           :key="i"
           :tentativa="tentativa"
           :palavraDaRodada="estadoAtual.palavraDaRodada"
-          :tentativaFinalizada="i < estadoAtual.quantidadeTentativas"
+          :tentativaFinalizada="i < estadoAtual.tentativaJogada"
         />
       </div>
 
-      <Teclado @onTeclaPressionada="handleInput"/> 
+      <Teclado @onTeclaPressionada="teclaPressionada"/> 
 
       <Modal 
-        :terminouAsTentativas="estadoAtual.terminouAsTentativas" 
-        :descobriuAPalavra="estadoAtual.descobriuAPalavra" 
+        v-bind:terminouAsTentativas="estadoAtual.terminouAsTentativas" 
+              :descobriuAPalavra="estadoAtual.descobriuAPalavra" 
       />
         
       
