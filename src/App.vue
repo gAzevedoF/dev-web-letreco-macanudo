@@ -5,6 +5,7 @@
 import Tentativa from "./components/Tentativa.vue"
 import Teclado from './components/Teclado.vue'
 import Modal from './components/Modal.vue'
+import Logo from './assets/logo.png'
 import { reactive } from "vue"
 
 const palavras = [
@@ -78,7 +79,7 @@ const teclaPressionada = (tecla) => {
 <template>
   <div>
     <div class="h-36 bg-gradient-to-r from-green-500 via-red-700 to-yellow-500 flex-shrink-0 flex items-center justify-center">
-      <img class="w-24" src="src\assets\logo.png" alt="">
+      <img class="w-24" :src="Logo" alt="">
       <p class="font-mono text-white sm:text-4xl lg:text-6xl">LETRECO MACANUDO</p>
     </div>
     

@@ -1,7 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
 
-
 const props = defineProps({
     terminouAsTentativas: {
         type: Boolean,
@@ -33,8 +32,8 @@ const props = defineProps({
             <h3 v-else class="text-2xl">É de cair os butiá do bolso</h3>
           </div>
           <div class="mt-4">
-            <img v-if="descobriuAPalavra" src="src\assets\o-cris-pereira-good.gif" alt="">
-            <img v-else src="src\assets\mas-que-barbaridade.gif" alt="">
+            <img v-if="descobriuAPalavra" src=".\assets\o-cris-pereira-good.gif" alt="">
+            <img v-else src=".\assets\mas-que-barbaridade.gif" alt="">
           </div>
         </div>
       </div>
