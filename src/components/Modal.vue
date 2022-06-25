@@ -1,7 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import Parabens from './assets/o-cris-pereira-good.gif';
-import GameOver from './assets/mas-que-barbaridade.gif';
 
 const props = defineProps({
     terminouAsTentativas: {
@@ -34,8 +32,8 @@ const props = defineProps({
             <h3 v-else class="text-2xl">É de cair os butiá do bolso</h3>
           </div>
           <div class="mt-4">
-            <img v-if="descobriuAPalavra" :src="Parabens" alt="">
-            <img v-else :src="GameOver" alt="">
+            <img v-if="descobriuAPalavra" src="https://c.tenor.com/aHiJ8y20QToAAAAM/o-cris-pereira-good.gif" alt="">
+            <img v-else src="https://c.tenor.com/nuE08aCbPHYAAAAC/mas-que-barbaridade.gif" alt="">
           </div>
         </div>
       </div>
