@@ -53,7 +53,7 @@ const palavrasDificuldadeDificil = [
   "bergamota",
   "cacetinho",
   "lagartear",
-  "querência"
+  "querencia"
 ];
 
 const palavras = [
