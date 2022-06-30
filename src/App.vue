@@ -144,37 +144,38 @@ let checaLetrasJogadas = palavraTentativa => {
 
 <template>
   <div>
-    <div
+    <header 
       class="h-36 bg-gradient-to-r from-green-500 via-red-700 to-yellow-500 flex-shrink-0 flex items-center justify-center"
     >
       <img class="w-24" :src="Logo" alt />
       <p class="font-mono text-white sm:text-4xl lg:text-6xl">LETRECO MACANUDO</p>
-    </div>
+    </header >
 
-    <div
+    <div class="min-h-screen"
       v-if="estadoAtual.dificuldade == 0"
-      class="flex flex-col h-screen max-w-md mx-auto justify-evenly"
     >
-      <div>
+      <div class="mt-16 bg-gradient-to-r p-[6px] from-green-500 via-red-700 to-yellow-500 max-w-md mx-auto rounded-lg">
+
+        <div class="flex flex-col space-y-4 items-center bg-white text-white rounded-lg p-4">
+        <p class="font-semibold text-2xl dark:text-white uppercase text-gray-700">Seleciona a dificuldade vivente</p>
         <button
           v-on:click="selecionaDificuldade(1)"
-          class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded"
-        >Fácil</button>
-      </div>
-      <div>
+          class="w-24 bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded"
+        >Piá</button>
+
         <button
           v-on:click="selecionaDificuldade(2)"
-          class="bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded"
-        >Médio</button>
-      </div>
-      <div>
+          class="w-24 bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded"
+        >Rapaz</button>
+
         <button
           v-on:click="selecionaDificuldade(3)"
-          class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
-        >Difícil</button>
+          class="w-24 bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
+        >Veterano</button>
+        </div>
       </div>
     </div>
-    <div v-else class="flex flex-col h-screen max-w-md mx-auto justify-evenly">
+    <div v-else class="flex flex-col h-screen min-h-screen max-w-md mx-auto justify-evenly">
       <div>
         <Tentativa
           v-for="(tentativa, i) in estadoAtual.tentativas"
@@ -193,9 +194,12 @@ let checaLetrasJogadas = palavraTentativa => {
       />
     </div>
 
-    <div class="bg-gray-500 h-36 flex items-center justify-center">
-      <p class="font-mono text-1xl">Desenvolvimento para Web/2022</p>
-    </div>
+    <footer class="bg-gray-400 text-center lg:text-left">
+      <div class="text-gray-700 text-center p-4">
+        © 2022 Copyright:
+    <a class="text-gray-800" href="https://www.linkedin.com/in/guilherme-ferreira-099a681b4">Guilherme Ferreira</a>
+  </div>
+</footer>
   </div>
 </template>
 
